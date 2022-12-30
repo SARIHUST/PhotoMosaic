@@ -99,9 +99,6 @@ if __name__ == '__main__':
     pqsize = 20
     pm = PhotoMosaic(pqsize=pqsize)
     pm.load_patching_images('monet')
-    for i, name in enumerate(os.listdir('xsg')):
-        print('processing {}'.format(name))
-        pm.load_target(os.path.join('xsg', name))
-        pm.process()
-        pm.store_result(os.path.join('xsg', '{}-mosaic-{}.jpg'.format(name, i + 1, pqsize)))
-        
+    pm.load_target('demo/jqt.jpg')
+    pm.process()
+    pm.store_result('demo/jqt-mosaic-20.jpg')
